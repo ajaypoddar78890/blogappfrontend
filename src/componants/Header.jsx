@@ -28,7 +28,7 @@ const Header = () => {
 
   return (
     <div>
-      <nav className="bg-[#4ADE80] border-gray-200">
+      <nav className="bg-gradient-to-b from-green-50 to-green-100 border-b-2 border-green-500">
         <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
           {/* Logo */}
           <a href="#" className="flex items-center">
@@ -37,7 +37,7 @@ const Header = () => {
               className="h-8"
               alt="Flowbite Logo"
             />
-            <span className=" ml-2 self-center text-2xl font-semibold whitespace-nowrap  text-white">
+            <span className=" ml-2 self-center text-2xl font-semibold whitespace-nowrap  text-black">
               IonAssist
             </span>
           </a>

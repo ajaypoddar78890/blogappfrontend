@@ -1,12 +1,12 @@
-import Header from './componants/Header';
-import Hero from './componants/Hero';
-import './App.css';
+import Header from "./componants/Header";
+import Hero from "./componants/Hero";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-     <Header/>
-     <Hero/>
+    <div className="App overflow-hidden">
+      <Header />
+      <Hero />
     </div>
   );
 }

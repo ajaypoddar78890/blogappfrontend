@@ -1,10 +1,10 @@
- 
+import Header from './componants/Header';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-    <h1>hey react</h1>
+     <Header/>
     </div>
   );
 }

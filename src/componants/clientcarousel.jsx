@@ -2,9 +2,11 @@ import React from "react";
 
 const clientcarousel = () => {
   return (
-    <div>
-      <div class="partners-logo-slider  ">
-        <p class="sliderTitle text-xl font-semibold text-green-500">Trusted by 200,000+ leading organizations</p>
+    <div className="my-5">
+      <div class="partners-logo-slider   ">
+        <p class="sliderTitle text-xl md:text-2xl lg:text-3xl font-semibold text-green-500">
+          Trusted by 200,000+ leading organizations
+        </p>
         <div class="slide-track">
           <div class="slide bg-gradient-to-b from-green-50 to-green-100 ">
             <img

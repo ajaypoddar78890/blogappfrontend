@@ -1,0 +1,119 @@
+import React from "react";
+
+const clientcarousel = () => {
+  return (
+    <div>
+      <div class="partners-logo-slider  ">
+        <p class="sliderTitle text-xl font-semibold text-green-500">Trusted by 200,000+ leading organizations</p>
+        <div class="slide-track">
+          <div class="slide bg-gradient-to-b from-green-50 to-green-100 ">
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png"
+              height="100"
+              width="250"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png"
+              height="100"
+              width="250"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png"
+              height="100"
+              width="250"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png"
+              height="100"
+              width="250"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png"
+              height="100"
+              width="250"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png"
+              height="100"
+              width="250"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png"
+              height="100"
+              width="250"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png"
+              height="100"
+              width="250"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png"
+              height="100"
+              width="250"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png"
+              height="100"
+              width="250"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png"
+              height="100"
+              width="250"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png"
+              height="100"
+              width="250"
+              alt=""
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png"
+              height="100"
+              width="250"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default clientcarousel;

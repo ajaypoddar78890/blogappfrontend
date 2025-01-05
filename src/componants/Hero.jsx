@@ -3,7 +3,7 @@ import React from "react";
 const Hero = () => {
   return (
     <div className=" ">
-      <div class=" bg-gradient-to-b from-green-50 to-green-100 h-screen w-screen ">
+      <div class=" bg-gradient-to-b from-green-50 to-green-100 h-full w-full ">
         <section class="  container mx-auto px-1 md:px-3  pt-10  ">
           <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 ">
             <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">

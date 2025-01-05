@@ -1,5 +1,6 @@
 import Header from "./componants/Header";
 import Hero from "./componants/Hero";
+import LogoCarousel from "./componants/clientcarousel";
 import "./App.css";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className="App overflow-hidden">
       <Header />
       <Hero />
+      <LogoCarousel />
     </div>
   );
 }

@@ -7,3 +7,47 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
+
+/* __________ L O G O   S L I D E R __________ */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+
+.partners-logo-slider {
+  height: 170px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: auto;
+
+  padding: 16px 0px;
+
+  .slide-track {
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+  }
+
+  .sliderTitle {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+  }
+
+  .slide {
+    height: 100px;
+    width: 250px;
+    filter: grayscale(100%);
+  }
+
+  .slide:hover {
+    filter: grayscale(0%);
+  }
+}

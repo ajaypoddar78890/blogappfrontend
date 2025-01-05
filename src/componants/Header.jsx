@@ -28,7 +28,7 @@ const Header = () => {
 
   return (
     <div>
-      <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+      <nav className="bg-[#4ADE80] border-gray-200">
         <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
           {/* Logo */}
           <a href="#" className="flex items-center">
@@ -37,22 +37,22 @@ const Header = () => {
               className="h-8"
               alt="Flowbite Logo"
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <span className=" ml-2 self-center text-2xl font-semibold whitespace-nowrap  text-white">
               IonAssist
             </span>
           </a>
 
           {/* Centered Navbar Links */}
-          <div className="hidden md:flex md:space-x-8 md:flex-1 md:justify-center">
+          <div className="hidden md:flex md:space-x-8 md:flex-1 md:justify-center font-semibold">
             <a
               href="#"
-              className="text-gray-900 hover:text-blue-700 dark:text-white md:p-0"
+              className="text-gray-900 hover:text-orange-500   md:p-0"
             >
               Home
             </a>
             <a
               href="#"
-              className="text-gray-900 hover:text-blue-700 dark:text-white md:p-0"
+              className="text-gray-900 hover:text-orange-500   md:p-0"
             >
               About
             </a>
@@ -60,7 +60,7 @@ const Header = () => {
               <button
                 id="dropdownNavbarLink"
                 data-dropdown-toggle="dropdownNavbar"
-                className="flex items-center justify-between text-gray-900 hover:text-blue-700 dark:text-white md:p-0"
+                className="flex items-center justify-between  hover:text-orange-500   md:p-0"
               >
                 Services
                 <svg
@@ -108,26 +108,20 @@ const Header = () => {
                 </ul>
               </div>
             </li>
-            <a
-              href="#"
-              className="text-gray-900 hover:text-blue-700 dark:text-white md:p-0"
-            >
+            <a href="#" className="hover:text-orange-500  md:p-0">
               Blogs
             </a>
-            <a
-              href="#"
-              className="text-gray-900 hover:text-blue-700 dark:text-white md:p-0"
-            >
+            <a href="#" className="hover:text-orange-500  md:p-0">
               Contact
             </a>
           </div>
 
           {/* Right-Aligned Buttons */}
           <div className="hidden md:flex space-x-4">
-            <button className="px-4 py-2 text-white bg-blue-700 rounded-md hover:bg-blue-800">
+            <button className="px-4 py-2 text-white font-medium bg-orange-500 hover:bg-orange-600  rounded-md  ">
               Register
             </button>
-            <button className="px-4 py-2 text-blue-700 border border-blue-700 rounded-md hover:bg-blue-700 hover:text-white">
+            <button className="px-4 py-2 text-white font-medium bg-orange-500 hover:bg-orange-600 rounded-md">
               Login
             </button>
           </div>

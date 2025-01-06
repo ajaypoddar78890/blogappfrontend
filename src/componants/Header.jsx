@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   useEffect(() => {
@@ -41,7 +42,6 @@ const Header = () => {
               IonAssist
             </span>
           </a>
-
           {/* Centered Navbar Links */}
           <div className="hidden md:flex md:space-x-8 md:flex-1 md:justify-center font-semibold">
             <a
@@ -115,17 +115,20 @@ const Header = () => {
               Contact
             </a>
           </div>
-
           {/* Right-Aligned Buttons */}
-          <div className="hidden md:flex space-x-4">
-            <button className="px-4 py-2 text-white font-medium bg-orange-500 hover:bg-orange-600  rounded-md  ">
-              Register
-            </button>
-            <button className="px-4 py-2 text-white font-medium bg-orange-500 hover:bg-orange-600 rounded-md">
-              Login
-            </button>
-          </div>
 
+          <div className="hidden md:flex space-x-4">
+            <Link to="/register">
+              <button className="px-4 py-2 text-white font-medium bg-orange-500 hover:bg-orange-600 rounded-md">
+                Register
+              </button>
+            </Link>
+            <Link to="/login">
+              <button className="px-4 py-2 text-white font-medium bg-orange-500 hover:bg-orange-600 rounded-md">
+                Login
+              </button>
+            </Link>
+          </div>
           {/* Hamburger Menu for Small Screens */}
           <button
             data-collapse-toggle="navbar-multi-level"

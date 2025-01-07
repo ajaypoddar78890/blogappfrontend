@@ -108,7 +108,7 @@ const Header = () => {
                 </ul>
               </div>
             </li>
-            <a href="#" className="hover:text-orange-500  md:p-0">
+            <a href="blogs" className="hover:text-orange-500  md:p-0">
               Blogs
             </a>
             <a href="#" className="hover:text-orange-500  md:p-0">

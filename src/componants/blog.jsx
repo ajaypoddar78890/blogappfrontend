@@ -1,72 +1,79 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Blog = () => {
-  const [blogs, setBlogs] = useState([
-    {
-      id: 1,
-      title: "The Importance of React Hooks",
-      description:
-        "React Hooks revolutionized functional components, making state management and side effects much easier.",
-    },
-    {
-      id: 2,
-      title: "Introduction to Tailwind CSS",
-      description:
-        "Tailwind CSS is a utility-first CSS framework that allows for rapid UI development.",
-    },
-    {
-      id: 3,
-      title: "Building a RESTful API with Node.js and Express",
-      description:
-        "Learn how to create a robust backend API using Node.js and the Express framework.",
-    },
-  ]);
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [newBlog, setNewBlog] = useState({ title: "", description: "" });
 
-  const [isModalOpen, setIsModalOpen] = useState(false); // Modal visibility state
-  const [newBlog, setNewBlog] = useState({ title: "", description: "" }); // Form state
+  // Fetch blogs from the API
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:8080/api/task/gettasks"
+        );
+        setBlogs(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
 
-  // Handle input changes
+    fetchTasks();
+  }, []);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewBlog({ ...newBlog, [name]: value });
   };
 
-  // Handle form submission
-  const handleCreateBlog = (e) => {
-    e.preventDefault();
-    if (newBlog.title && newBlog.description) {
-      setBlogs([
-        ...blogs,
-        {
-          id: Date.now(),
-          title: newBlog.title,
-          description: newBlog.description,
-        },
-      ]);
-      setNewBlog({ title: "", description: "" }); // Reset form
-      setIsModalOpen(false); // Close modal
+  const handleCreateBlog = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/task/createtasks",
+        newBlog
+      );
+      setBlogs([...blogs, response.data]); // Add the new blog to the list
+      setIsModalOpen(false); // Close the modal
+      setNewBlog({ title: "", description: "" }); // Reset the form
+    } catch (error) {
+      console.error("Error creating blog:", error);
     }
   };
 
   const handleDelete = (id) => {
     setBlogs(blogs.filter((blog) => blog.id !== id));
+    // Add API delete functionality if needed
   };
+
+  if (loading) {
+    return <div className="text-center text-lg font-semibold">Loading...</div>;
+  }
+
+  if (error) {
+    return (
+      <div className="text-center text-lg text-red-600 font-semibold">
+        Error: {error}
+      </div>
+    );
+  }
 
   return (
     <div className="bg-gradient-to-b from-green-50 to-green-100 min-h-screen py-12 px-4">
       <div className="container mx-auto max-w-5xl">
-        {/* Header */}
         <div className="flex justify-between items-center mb-12">
           <h1 className="text-4xl font-extrabold text-gray-800">My Blogs</h1>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="bg-green-600 text-white text-sm font-medium py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300"
+            className="bg-green-500 text-white text-sm font-medium py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
           >
             Create Blog
           </button>
         </div>
-
-        {/* Blog Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog) => (
             <div
@@ -95,69 +102,58 @@ const Blog = () => {
             </div>
           ))}
         </div>
+      </div>
 
-        {/* Modal */}
-        {isModalOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg p-6 w-96 shadow-lg">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">
-                Create New Blog
-              </h2>
-              <form onSubmit={handleCreateBlog} className="space-y-4">
-                <div>
-                  <label
-                    htmlFor="title"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Title
-                  </label>
-                  <input
-                    type="text"
-                    id="title"
-                    name="title"
-                    value={newBlog.title}
-                    onChange={handleInputChange}
-                    className="block w-full mt-1 border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="description"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Description
-                  </label>
-                  <textarea
-                    id="description"
-                    name="description"
-                    rows="4"
-                    value={newBlog.description}
-                    onChange={handleInputChange}
-                    className="block w-full mt-1 border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                    required
-                  />
-                </div>
-                <div className="flex justify-end space-x-4">
-                  <button
-                    type="button"
-                    onClick={() => setIsModalOpen(false)}
-                    className="bg-gray-300 text-gray-800 text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-400 transition duration-300"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    className="bg-green-600 text-white text-sm font-medium py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300"
-                  >
-                    Create
-                  </button>
-                </div>
-              </form>
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              Create Blog
+            </h2>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
+                Title
+              </label>
+              <input
+                type="text"
+                name="title"
+                value={newBlog.title}
+                onChange={handleInputChange}
+                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                placeholder="Enter blog title"
+              />
+            </div>
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700">
+                Description
+              </label>
+              <textarea
+                name="description"
+                value={newBlog.description}
+                onChange={handleInputChange}
+                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                rows="4"
+                placeholder="Enter blog description"
+              ></textarea>
+            </div>
+            <div className="flex justify-end gap-4">
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="bg-gray-500 text-white text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-600 transition duration-300"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleCreateBlog}
+                className="bg-green-500 text-white text-sm font-medium py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
+              >
+                Create
+              </button>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

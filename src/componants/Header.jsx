@@ -29,8 +29,8 @@ const Header = () => {
 
   return (
     <div>
-      <nav className="bg-gradient-to-b from-green-50 to-green-100 border-b-2 border-green-500">
-        <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+      <nav className="bg-gradient-to-b    from-green-50 to-green-100 border-b-2 border-green-500">
+        <div className=" container  flex items-center justify-between mx-auto p-4">
           {/* Logo */}
           <a href="#" className="flex items-center">
             <img

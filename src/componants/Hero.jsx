@@ -6,7 +6,7 @@ const Hero = () => {
       <div className="hero-content h-full container mx-auto px-4   flex items-center justify-center">
         {" "}
         {/* Key changes here */}
-        <div className="lg:grid lg:grid-cols-2 lg:gap-12 w-full max-w-7xl">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-12 w-full ">
           {" "}
           {/* Added max-w-7xl for better layout */}
           <div className="lg:order-1">

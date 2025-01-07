@@ -27,29 +27,35 @@ const Blog = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen py-12 px-4">
-      <div className="container mx-auto max-w-4xl">
-        <h1 className="text-3xl font-bold mb-8 text-center">My Blogs</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="bg-gradient-to-b from-green-50 to-green-100 min-h-screen py-12 px-4">
+      <div className="container mx-auto max-w-5xl">
+        <h1 className="text-4xl font-extrabold mb-12 text-center text-gray-800">
+          My Blogs
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog) => (
             <div
               key={blog.id}
-              className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300"
+              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
-              <h2 className="text-xl font-semibold mb-2 text-blue-700">
-                {blog.title}
-              </h2>
-              <p className="text-gray-700 mb-4">{blog.description}</p>
-              <div className="flex justify-end space-x-2">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDelete(blog.id)}
-                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-300"
-                >
-                  Delete
-                </button>
+              <div className="p-6 flex flex-col h-full">
+                <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+                  {blog.title}
+                </h2>
+                <p className="text-gray-600 flex-grow mb-6">
+                  {blog.description}
+                </p>
+                <div className="flex gap-2">
+                  <button className="bg-blue-500 text-white text-sm font-medium py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(blog.id)}
+                    className="bg-orange-600 text-white text-sm font-medium py-2 px-4 rounded-lg hover:bg-orange-800 transition duration-300"
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             </div>
           ))}

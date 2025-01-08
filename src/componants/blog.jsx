@@ -14,7 +14,7 @@ const Blog = () => {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8080/api/task/gettasks"
+          "https://blogappbackend-h491.onrender.com/api/task/gettasks"
         );
         setBlogs(response.data);
       } catch (error) {
@@ -44,7 +44,7 @@ const Blog = () => {
       if (modalData.id) {
         // Update existing blog
         await axios.put(
-          `http://localhost:8080/api/task/update/${modalData.id}`,
+          `https://blogappbackend-h491.onrender.com/api/task/update/${modalData.id}`,
           {
             title: modalData.title,
             description: modalData.description,
@@ -58,7 +58,7 @@ const Blog = () => {
       } else {
         // Create new blog
         const response = await axios.post(
-          "http://localhost:8080/api/task/createtasks",
+          "https://blogappbackend-h491.onrender.com/api/task/createtasks",
           {
             title: modalData.title,
             description: modalData.description,
@@ -74,7 +74,9 @@ const Blog = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/task/delete/${id}`);
+      await axios.delete(
+        `https://blogappbackend-h491.onrender.com/api/task/delete/${id}`
+      );
       setBlogs(blogs.filter((blog) => blog._id !== id));
     } catch (error) {
       console.error("Error deleting the blog:", error);

@@ -11,9 +11,9 @@ const Register = () => {
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const navigate = useNavigate(); // Initialize navigate function
+  const navigate = useNavigate();  
 
-  // Handle input changes
+   
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -22,25 +22,24 @@ const Register = () => {
     });
   };
 
-  // Handle form submission
+   
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();  
 
     try {
-      // Send POST request to your registration API
+       
       const response = await axios.post(
         "https://blogappbackend-h491.onrender.com/api/auth/register",
         formData
       );
-
-      // Handle success
+ 
       console.log("Registration successful:", response.data);
       setSuccess("Registration successful! Redirecting to the home page...");
-      setError(""); // Clear any previous errors
+      setError("");  
 
-      // Redirect to home page after 2 seconds
+       
       setTimeout(() => {
-        navigate("/"); // Change "/" to your desired route for the home page
+        navigate("/");  
       }, 2000);
     } catch (err) {
       // Handle errors
@@ -48,7 +47,7 @@ const Register = () => {
       setError(
         err.response?.data?.message || "Something went wrong. Please try again."
       );
-      setSuccess(""); // Clear success message
+      setSuccess("");  
     }
   };
 

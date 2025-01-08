@@ -31,7 +31,6 @@ const Header = () => {
     <div>
       <nav className="bg-gradient-to-b    from-green-50 to-green-100 border-b-2 border-green-500">
         <div className=" container  flex items-center justify-between mx-auto p-4">
-          {/* Logo */}
           <a href="/" className="flex items-center">
             <img
               src="https://flowbite.com/docs/images/logo.svg"
@@ -42,7 +41,7 @@ const Header = () => {
               IonAssist
             </span>
           </a>
-          {/* Centered Navbar Links */}
+
           <div className="hidden md:flex md:space-x-8 md:flex-1 md:justify-center font-semibold">
             <a
               href="#"
@@ -116,7 +115,6 @@ const Header = () => {
             </a>
           </div>
           {/* Right-Aligned Buttons */}
-
           <div className="hidden md:flex space-x-4">
             <Link to="/register">
               <button className="px-4 py-2 text-white font-medium bg-orange-500 hover:bg-orange-600 rounded-md">

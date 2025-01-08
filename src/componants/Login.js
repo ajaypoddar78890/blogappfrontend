@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent page reload
+    e.preventDefault();  
 
     try {
       // Make POST request to your login API
@@ -19,14 +21,17 @@ const Login = () => {
         }
       );
 
-      // Handle success (e.g., store token, redirect, etc.)
+       
       console.log("Login successful:", response.data);
 
-      // Example: Store token in localStorage
+      
       localStorage.setItem("authToken", response.data.token);
 
-      // Redirect or notify the user
+      
       alert("Login successful!");
+      setTimeout(() => {
+        navigate("/");  
+      }, 2000);
     } catch (err) {
       // Handle error
       console.error("Login failed:", err.response?.data || err.message);

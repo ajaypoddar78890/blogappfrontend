@@ -5,28 +5,20 @@ const Hero = () => {
     <div className="hero bg-gradient-to-b from-green-50 to-green-100 h-[80vh] border-b-2">
       <div className="hero-content h-full container mx-auto px-4   flex items-center justify-center">
         {" "}
-        {/* Key changes here */}
         <div className="lg:grid lg:grid-cols-2 lg:gap-12 w-full ">
           {" "}
-          {/* Added max-w-7xl for better layout */}
           <div className="lg:order-1">
             {" "}
-            {/* Optional: Order content on larger screens */}
             <h1 className="text-4xl font-bold text-black sm:text-6xl lg:text-7xl leading-tight">
               {" "}
-              {/* Added leading-tight */}A World of Ideas, at Your
+              A World of Ideas, at Your
               <div className="relative inline-flex">
                 <span className="absolute inset-x-0 bottom-0 border-b-[30px] border-[#4ADE80]"></span>
-                <span className="relative">
-                  {" "}
-                  {/* Changed to span for correct semantic HTML */}
-                  Fingertips
-                </span>
+                <span className="relative"> Fingertips</span>
               </div>
             </h1>
             <p className="mt-8 text-base text-black sm:text-xl leading-relaxed">
               {" "}
-              {/* Added leading-relaxed */}
               Welcome to your go-to destination for stories, insights, and
               inspiration. Whether you're exploring new ideas, staying updated
               on trends, sparking conversations, and celebrating the art of
@@ -48,7 +40,7 @@ const Hero = () => {
                 className="inline-flex items-center mt-6 text-base font-semibold transition-all duration-200 sm:mt-0 hover:opacity-80"
               >
                 <svg
-                  className="w-10 h-10 mr-3 fill-orange-500" // Improved SVG styling
+                  className="w-10 h-10 mr-3 fill-orange-500"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                 >
@@ -64,9 +56,8 @@ const Hero = () => {
           </div>
           <div className="lg:order-2">
             {" "}
-            {/* Optional: Order content on larger screens */}
             <img
-              className="w-full h-auto max-h-[80vh] object-contain" // Improved image styling
+              className="w-full h-auto max-h-[80vh] object-contain"
               src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/2/hero-img.png"
               alt="Hero Image"
               loading="lazy"

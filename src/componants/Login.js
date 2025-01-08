@@ -12,7 +12,7 @@ const Login = () => {
     try {
       // Make POST request to your login API
       const response = await axios.post(
-        "http://localhost:8080/api/auth/login",
+        "https://blogappbackend-h491.onrender.com/api/auth/login",
         {
           email,
           password,

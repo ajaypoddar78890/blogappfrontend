@@ -29,7 +29,7 @@ const Register = () => {
     try {
       // Send POST request to your registration API
       const response = await axios.post(
-        "http://localhost:8080/api/auth/register",
+        "https://blogappbackend-h491.onrender.com/api/auth/register",
         formData
       );
 
